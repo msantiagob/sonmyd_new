@@ -4,7 +4,7 @@ interface Props {
   message?: string;
 }
 
-const { phoneNumber = "1234567890", message = "Hola, me interesa saber más sobre sus servicios." } = Astro.props;
+const { phoneNumber = "573106041144", message = "Hola, me interesa saber más sobre sus servicios." } = Astro.props;
 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 ---
 
