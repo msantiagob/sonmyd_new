@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Sonmyd - Desarrollo de sitios y aplicaciones web de alto nivel." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-slate-50 text-slate-900 font-['Outfit'] antialiased overflow-x-hidden selection:bg-cyan-500 selection:text-white">
+		<div class="fixed inset-0 z-[-1]" style="background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 100%);"></div>
+		
+		<!-- Ambient Glow Effects -->
+		<div class="fixed top-0 left-1/4 w-96 h-96 bg-cyan-300/30 rounded-full blur-[128px] pointer-events-none z-[-1]"></div>
+		<div class="fixed bottom-0 right-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-[128px] pointer-events-none z-[-1]"></div>
+
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--accent: 79, 70, 229;
+		--accent-light: 199, 210, 254;
+		--accent-dark: 49, 46, 129;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: 'Outfit', system-ui, sans-serif;
+		background: #f8fafc;
+	}
+	
+	/* Custom Scrollbar */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: #0f172a;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #334155;
+		border-radius: 5px;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: #475569;
+	}
+</style>
